@@ -18,6 +18,8 @@ import {DropdownDirective} from './shared/dropdown.directive';
 import { AccountComponent } from './services/account/account.component';
 import { NewAccountComponent } from './services/new-account/new-account.component';
 import { ServicesComponent } from './services/services.component';
+import {AccountService} from './shared/account.service';
+import {LoggingService} from './shared/logging.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { ServicesComponent } from './services/services.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AccountService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
