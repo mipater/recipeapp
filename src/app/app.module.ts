@@ -20,6 +20,24 @@ import { NewAccountComponent } from './services/new-account/new-account.componen
 import { ServicesComponent } from './services/services.component';
 import {AccountService} from './shared/account.service';
 import {LoggingService} from './shared/logging.service';
+import {ShoppingListService} from './shopping-list/shopping-list.service';
+import { RoutersComponent } from './routers/routers.component';
+import { HomeComponent } from './routers/home/home.component';
+import { ServersComponent } from './routers/servers/servers.component';
+import { UsersComponent } from './routers/users/users.component';
+import { EditServerComponent } from './routers/servers/edit-server/edit-server.component';
+import { ServerComponent } from './routers/servers/server/server.component';
+import {ServersService} from './routers/servers/servers.service';
+import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import {UserComponent} from './routers/users/user/user.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id/:name', component: UserComponent },
+  { path: 'servers', component: ServersComponent },
+];
 
 @NgModule({
   declarations: [
@@ -38,13 +56,23 @@ import {LoggingService} from './shared/logging.service';
     DropdownDirective,
     AccountComponent,
     NewAccountComponent,
-    ServicesComponent
+    ServicesComponent,
+    RoutersComponent,
+    HomeComponent,
+    ServersComponent,
+    UsersComponent,
+    EditServerComponent,
+    ServerComponent,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [AccountService, LoggingService],
+  providers: [AccountService, LoggingService, ShoppingListService, ServersService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
