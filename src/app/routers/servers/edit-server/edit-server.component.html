@@ -1,5 +1,5 @@
-<h4 *ngIf="!allowEdit;" else showEdit>You're not allowed to edit!</h4>
-<ng-template #showEdit>
+<h4 *ngIf="!allowEdit;">You're not allowed to edit!</h4>
+<div *ngIf="allowEdit">
   <div class="form-group">
     <label for="name">Server Name</label>
     <input
@@ -21,4 +21,4 @@
   <button
     class="btn btn-primary"
     (click)="onUpdateServer()">Update Server</button>
-</ng-template>
+</div>
