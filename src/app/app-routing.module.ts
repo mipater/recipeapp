@@ -11,8 +11,13 @@ import {AuthGuard} from './auth.guard.service';
 import {CanDeactivateGuard} from './routers/servers/edit-server/can-deactivate-guard.service';
 import {ErrorPageComponent} from './routers/error-page/error-page.component';
 import {ServerResolverService} from './routers/servers/server/server-resolver.service';
+import {AppComponent} from './app.component';
+import {RecipesComponent} from './recipes/recipes.component';
+import {ShoppingListComponent} from './shopping-list/shopping-list.component';
+import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
+import {RecipeItemComponent} from './recipes/recipe-list/recipe-item/recipe-item.component';
 
-const appRoutes: Routes = [
+/*const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'users', component: UsersComponent, children: [
       {path: ':id/:name', component: UserComponent}
@@ -23,11 +28,20 @@ const appRoutes: Routes = [
     ]},
   {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'}},
   {path: '**', redirectTo: '/not-found'}
+];*/
+const appRoutes: Routes = [
+  {path: '', redirectTo: '/recipes', pathMatch: 'full'},
+  {path: 'recipes', component: RecipesComponent, children: [
+      {path: ':id', component: RecipeItemComponent}
+    ]},
+  {path: 'shopping-list', component: ShoppingListComponent},
+  {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'}},
+  {path: '**', redirectTo: '/not-found'}
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, {useHash: true})
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule]
 })
