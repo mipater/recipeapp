@@ -22,14 +22,14 @@ import {AccountService} from './shared/account.service';
 import {LoggingService} from './shared/logging.service';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
 import {RoutersComponent} from './routers/routers.component';
-import {HomeComponent} from './routers/home/home.component';
+import {HomeComponent} from './observables/home/home.component';
 import {ServersComponent} from './routers/servers/servers.component';
 import {UsersComponent} from './routers/users/users.component';
 import {EditServerComponent} from './routers/servers/edit-server/edit-server.component';
 import {ServerComponent} from './routers/servers/server/server.component';
 import {ServersService} from './routers/servers/servers.service';
 import {HttpClientModule} from '@angular/common/http';
-import {UserComponent} from './routers/users/user/user.component';
+import {UserComponent} from './observables/user/user.component';
 import { PageNotFoundComponent } from './routers/page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from './auth-service';
@@ -38,6 +38,7 @@ import {CanDeactivateGuard} from './routers/servers/edit-server/can-deactivate-g
 import { ErrorPageComponent } from './routers/error-page/error-page.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 @NgModule({
   declarations: [
@@ -58,17 +59,18 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     NewAccountComponent,
     ServicesComponent,
     RoutersComponent,
-    HomeComponent,
     ServersComponent,
     UsersComponent,
     EditServerComponent,
     ServerComponent,
     UsersComponent,
-    UserComponent,
     PageNotFoundComponent,
     ErrorPageComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    ObservablesComponent,
+    HomeComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
