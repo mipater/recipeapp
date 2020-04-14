@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './routers/home/home.component';
+import {HomeComponent} from './observables/home/home.component';
 import {UsersComponent} from './routers/users/users.component';
-import {UserComponent} from './routers/users/user/user.component';
+import {UserComponent} from './observables/user/user.component';
 import {ServersComponent} from './routers/servers/servers.component';
 import {ServerComponent} from './routers/servers/server/server.component';
 import {EditServerComponent} from './routers/servers/edit-server/edit-server.component';
@@ -41,8 +41,9 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
   {path: 'recipes', component: RecipesComponent, children: [
       {path: '', component: RecipeStartComponent},
+      {path: 'new', component: RecipeEditComponent},
       {path: ':id', component: RecipeDetailComponent},
-      {path: 'new', component: RecipeEditComponent}
+      {path: ':id/edit', component: RecipeEditComponent}
     ]},
   {path: 'shopping-list', component: ShoppingListComponent},
   {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'}},
