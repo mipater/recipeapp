@@ -39,6 +39,7 @@ import { ErrorPageComponent } from './routers/error-page/error-page.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ObservablesComponent } from './observables/observables.component';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ObservablesComponent } from './observables/observables.component';
     RecipeEditComponent,
     ObservablesComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
