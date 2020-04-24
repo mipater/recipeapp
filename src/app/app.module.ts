@@ -40,6 +40,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { FormsComponent } from './forms/forms.component';
+import { FormsExerciseComponent } from './forms/forms-exercise/forms-exercise.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { FormsComponent } from './forms/forms.component';
     ObservablesComponent,
     HomeComponent,
     UserComponent,
-    FormsComponent
+    FormsComponent,
+    FormsExerciseComponent
   ],
   imports: [
     BrowserModule,
