@@ -9,7 +9,7 @@ import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.compo
 import {RecipeItemComponent} from './recipes/recipe-list/recipe-item/recipe-item.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DirectivesComponent} from './directives/directives.component';
 import {BasicHighlightDirective} from './directives/basic-highlight/basic-highlight.directive';
 import {BetterHightlightDirective} from './directives/better-highlights/better-hightlight.directive';
@@ -41,6 +41,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { ObservablesComponent } from './observables/observables.component';
 import { FormsComponent } from './forms/forms.component';
 import { FormsExerciseComponent } from './forms/forms-exercise/forms-exercise.component';
+import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -74,13 +75,15 @@ import { FormsExerciseComponent } from './forms/forms-exercise/forms-exercise.co
     HomeComponent,
     UserComponent,
     FormsComponent,
-    FormsExerciseComponent
+    FormsExerciseComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [AccountService, LoggingService, ShoppingListService,
     ServersService, AccountService, AuthService, AuthGuard, CanDeactivateGuard],
