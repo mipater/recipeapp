@@ -37,7 +37,7 @@ import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
   {path: 'user/:id', component: UserComponent}
 ];*/
 
-/*const appRoutes: Routes = [
+const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
   {path: 'recipes', component: RecipesComponent, children: [
       {path: '', component: RecipeStartComponent},
@@ -48,9 +48,9 @@ import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
   {path: 'shopping-list', component: ShoppingListComponent},
   {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'}},
   {path: '**', redirectTo: '/not-found'}
-];*/
+];
 
-const appRoutes: Routes = [];
+/*const appRoutes: Routes = [];*/
 
 @NgModule({
   imports: [
