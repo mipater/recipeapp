@@ -43,6 +43,7 @@ import { FormsComponent } from './forms/forms.component';
 import { FormsExerciseComponent } from './forms/forms-exercise/forms-exercise.component';
 import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 import { ReactiveFormExerciseComponent } from './forms/reactive-form/reactive-form-exercise/reactive-form-exercise.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ReactiveFormExerciseComponent } from './forms/reactive-form/reactive-fo
     FormsComponent,
     FormsExerciseComponent,
     ReactiveFormComponent,
-    ReactiveFormExerciseComponent
+    ReactiveFormExerciseComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
