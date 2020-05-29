@@ -28,10 +28,11 @@ export class PipesComponent implements OnInit {
     {
       instanceType: 'small',
       name: 'Testing Environment Server',
-      status: 'stable',
+      status: 'critical',
       started: new Date(15, 1, 2017)
     }
   ];
+  filteredStatus = '';
 
   getStatusClasses(server: {instanceType: string, name: string, status: string, started: Date}) {
     return {
