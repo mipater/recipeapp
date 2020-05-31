@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pipes.component.css']
 })
 export class PipesComponent implements OnInit {
+  appStatus = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('stable');
+    }, 2000);
+  });
   servers = [
     {
       instanceType: 'medium',
@@ -45,5 +50,13 @@ export class PipesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAddServer() {
+    this.servers.push({
+      instanceType: 'small',
+      name: 'New Server',
+      status: 'stable',
+      started: new Date(15, 1, 2020)
+    });
+  }
 }
 

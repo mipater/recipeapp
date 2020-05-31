@@ -46,6 +46,9 @@ import { ReactiveFormExerciseComponent } from './forms/reactive-form/reactive-fo
 import { PipesComponent } from './pipes/pipes.component';
 import {ShortenPipe} from './pipes/shorten.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ReverseStrPipe } from './pipes/reverse-str.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+import { Http01Component } from './http/http01/http01.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +87,10 @@ import { FilterPipe } from './pipes/filter.pipe';
     ReactiveFormExerciseComponent,
     PipesComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    ReverseStrPipe,
+    SortPipe,
+    Http01Component
   ],
   imports: [
     BrowserModule,
