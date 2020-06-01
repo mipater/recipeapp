@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Post} from './post.model';
+import {PostService} from './post.service';
 
 @Component({
   selector: 'app-http01',
@@ -7,29 +9,42 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./http01.component.css']
 })
 export class Http01Component implements OnInit {
-  loadedPosts = [];
+  loadedPosts: Post[] = [];
+  isFetching = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private postService: PostService) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isFetching = true;
+    this.postService.fetchPosts().subscribe(posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
+    });
+  }
 
-  onCreatePost(postData: { title: string; content: string }) {
-    // Send Http request
-    this.http
-      .post(
-        'https://ng-complete-guide-9da49.firebaseio.com/posts.json',
-        postData
-      )
+  onCreatePost(postData: Post) {
+    this.postService.createAndStorePost(postData.title, postData.content)
       .subscribe(responseData => {
         console.log(responseData);
+        this.onFetchPosts();
       });
   }
 
   onFetchPosts() {
-    // Send Http request
+    this.isFetching = true;
+    this.postService.fetchPosts().subscribe(posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
+    });
   }
 
   onClearPosts() {
-    // Send Http request
+    this.isFetching = true;
+    this.postService.deleteAllPosts().subscribe(() => {
+      this.loadedPosts = [];
+      this.isFetching = false;
+    });
   }
+
 }
