@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Post} from './post.model';
-import {map} from 'rxjs/operators';
-import {Subject} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
+import {Subject, throwError} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class PostService {
@@ -28,13 +28,18 @@ export class PostService {
   fetchPosts() {
     return this.http.get<{ [key: string]: Post }>('https://ng-complete-guide-9da49.firebaseio.com/posts.json')
       .pipe(map((responseData) => {
-        const postsArray: Post[] = [];
-        for (const key in responseData) {
-          if (responseData.hasOwnProperty(key)) {
-            postsArray.push({...responseData[key], id: key});
+          const postsArray: Post[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              postsArray.push({...responseData[key], id: key});
+            }
           }
-        }
-        return postsArray;
-      }));
+          return postsArray;
+        }),
+        catchError(errorRes => {
+          // Send to analytics server
+          return throwError(errorRes);
+        })
+      );
   }
 }

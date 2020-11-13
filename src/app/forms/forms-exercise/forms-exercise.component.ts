@@ -7,7 +7,7 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./forms-exercise.component.css']
 })
 export class FormsExerciseComponent {
-  @ViewChild('form', {static: false}) form: NgForm;
+  @ViewChild('form') form: NgForm;
 
   formData = {
     email: '',

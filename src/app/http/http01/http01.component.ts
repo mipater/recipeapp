@@ -48,9 +48,8 @@ export class Http01Component implements OnInit, OnDestroy {
     this.postService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
-    }, error => {
-      this.error = error.message;
-    });
+    }, error => this.error = error.message
+    );
   }
 
   onClearPosts() {
