@@ -9,18 +9,19 @@ import {Subject} from 'rxjs';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe('A Test Recipe',
-      'This is simply a test',
-      'https://fiverr-res.cloudinary.com/t_mobile_web_2,q_auto,f_auto/gigs/139792698/original/84e4d14cca24be112294cac732e25b63125c67b4.jpeg',
-      [new Ingredient('meat', 1), new Ingredient('french fries', 20)]
-    ),
-    new Recipe('New Recipe',
-      'Wonderful',
-      'https://fiverr-res.cloudinary.com/t_mobile_web_2,q_auto,f_auto/gigs/139792698/original/84e4d14cca24be112294cac732e25b63125c67b4.jpeg',
-      [new Ingredient('buns', 2), new Ingredient('meat', 1)]
-    )
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe('A Test Recipe',
+  //     'This is simply a test',
+  //     'https://fiverr-res.cloudinary.com/t_mobile_web_2,q_auto,f_auto/gigs/139792698/original/84e4d14cca24be112294cac732e25b63125c67b4.jpeg',
+  //     [new Ingredient('meat', 1), new Ingredient('french fries', 20)]
+  //   ),
+  //   new Recipe('New Recipe',
+  //     'Wonderful',
+  //     'https://fiverr-res.cloudinary.com/t_mobile_web_2,q_auto,f_auto/gigs/139792698/original/84e4d14cca24be112294cac732e25b63125c67b4.jpeg',
+  //     [new Ingredient('buns', 2), new Ingredient('meat', 1)]
+  //   )
+  // ];
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService) {
   }
@@ -39,6 +40,11 @@ export class RecipeService {
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipesChanged.next(this.recipes.slice());
   }
 

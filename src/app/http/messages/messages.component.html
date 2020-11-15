@@ -1,0 +1,12 @@
+<div class="container" *ngIf="messageService.messages.length > 0">
+  <div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="alert alert-success">
+      <div *ngFor="let message of messageService.messages">
+        <p> {{ message }} </p>
+      </div>
+      <button class="btn btn-danger" (click)="messageService.clear()">Clear</button>
+    </div>
+  </div>
+</div>
+</div>

@@ -15,8 +15,7 @@ export class Http01Component implements OnInit, OnDestroy {
   error = null;
   private errorSub: Subscription;
 
-  constructor(private http: HttpClient, private postService: PostService) {
-  }
+  constructor(private http: HttpClient, private postService: PostService) {}
 
   ngOnInit() {
     this.errorSub = this.postService.error.subscribe(error => {
@@ -28,6 +27,7 @@ export class Http01Component implements OnInit, OnDestroy {
       this.isFetching = false;
       this.loadedPosts = posts;
     }, error => {
+      this.isFetching = false;
       this.error = error.message;
       console.log(error);
     });
@@ -48,7 +48,10 @@ export class Http01Component implements OnInit, OnDestroy {
     this.postService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
-    }, error => this.error = error.message
+    }, error => {
+        this.isFetching = false;
+        this.error = error.message;
+      }
     );
   }
 
@@ -64,4 +67,7 @@ export class Http01Component implements OnInit, OnDestroy {
     this.errorSub.unsubscribe();
   }
 
+  onHandleError() {
+    this.error = null;
+  }
 }

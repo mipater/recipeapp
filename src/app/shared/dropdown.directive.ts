@@ -18,7 +18,7 @@ export class DropdownDirective implements OnInit{
     this.dropdownMenu = this.elRef.nativeElement.querySelector('.dropdown-menu');
   }
 
-  @HostListener('document:click', ['$event']) mouseclick (event: Event) {
+  @HostListener('document:click', ['$event']) mouseclick(event: Event) {
     if (this.elRef.nativeElement.contains(event.target) && undefined === this.showClass) {
       this.showClass = 'show';
       this.renderer.addClass(this.dropdownMenu, 'show');
