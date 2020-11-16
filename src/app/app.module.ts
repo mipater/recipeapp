@@ -49,7 +49,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ReverseStrPipe } from './pipes/reverse-str.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { Http01Component } from './http/http01/http01.component';
-import {AuthInterceptorService} from './http/http01/auth-interceptor.service';
+import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import { MessagesComponent } from './http/messages/messages.component';
 import {LoggingInterceptorService} from './http/http01/logging.interceptor.service';
 import {AuthComponent} from './auth/auth.component';
@@ -109,7 +109,9 @@ import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.
   ],
   providers: [AccountService, LoggingService, ShoppingListService,
     ServersService, AccountService, AuthService, AuthGuard, CanDeactivateGuard,
-    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true}],
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

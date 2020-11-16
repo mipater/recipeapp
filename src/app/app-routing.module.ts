@@ -7,7 +7,6 @@ import {ServersComponent} from './routers/servers/servers.component';
 import {ServerComponent} from './routers/servers/server/server.component';
 import {EditServerComponent} from './routers/servers/edit-server/edit-server.component';
 import {PageNotFoundComponent} from './routers/page-not-found/page-not-found.component';
-import {AuthGuard} from './auth.guard.service';
 import {CanDeactivateGuard} from './routers/servers/edit-server/can-deactivate-guard.service';
 import {ErrorPageComponent} from './routers/error-page/error-page.component';
 import {ServerResolverService} from './routers/servers/server/server-resolver.service';
@@ -20,6 +19,7 @@ import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.componen
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {RecipesResolverService} from './recipes/recipes-resolver.service';
 import {AuthComponent} from './auth/auth.component';
+import {AuthGuard} from './auth/auth.guard';
 
 /*const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -41,7 +41,11 @@ import {AuthComponent} from './auth/auth.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-  {path: 'recipes', component: RecipesComponent, children: [
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    canActivate: [AuthGuard],
+    children: [
       {path: '', component: RecipeStartComponent},
       {path: 'new', component: RecipeEditComponent},
       {path: ':id', component: RecipeDetailComponent, resolve: [RecipesResolverService]},

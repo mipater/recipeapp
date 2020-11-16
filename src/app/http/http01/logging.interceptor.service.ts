@@ -4,7 +4,7 @@ import {finalize, tap} from 'rxjs/operators';
 import {MessageService} from '../messages/message.service';
 import {Injectable} from '@angular/core';
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 export class LoggingInterceptorService implements HttpInterceptor {
   constructor(private messageService: MessageService) {}
 
