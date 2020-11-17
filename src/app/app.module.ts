@@ -3,10 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
-import {RecipesComponent} from './recipes/recipes.component';
-import {RecipeListComponent} from './recipes/recipe-list/recipe-list.component';
-import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
-import {RecipeItemComponent} from './recipes/recipe-list/recipe-item/recipe-item.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -30,40 +26,36 @@ import {ServerComponent} from './routers/servers/server/server.component';
 import {ServersService} from './routers/servers/servers.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {UserComponent} from './observables/user/user.component';
-import { PageNotFoundComponent } from './routers/page-not-found/page-not-found.component';
+import {PageNotFoundComponent} from './routers/page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from './auth-service';
 import {AuthGuard} from './auth.guard.service';
 import {CanDeactivateGuard} from './routers/servers/edit-server/can-deactivate-guard.service';
-import { ErrorPageComponent } from './routers/error-page/error-page.component';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { ObservablesComponent } from './observables/observables.component';
-import { FormsComponent } from './forms/forms.component';
-import { FormsExerciseComponent } from './forms/forms-exercise/forms-exercise.component';
-import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
-import { ReactiveFormExerciseComponent } from './forms/reactive-form/reactive-form-exercise/reactive-form-exercise.component';
-import { PipesComponent } from './pipes/pipes.component';
+import {ErrorPageComponent} from './routers/error-page/error-page.component';
+import {ObservablesComponent} from './observables/observables.component';
+import {FormsComponent} from './forms/forms.component';
+import {FormsExerciseComponent} from './forms/forms-exercise/forms-exercise.component';
+import {ReactiveFormComponent} from './forms/reactive-form/reactive-form.component';
+import {ReactiveFormExerciseComponent} from './forms/reactive-form/reactive-form-exercise/reactive-form-exercise.component';
+import {PipesComponent} from './pipes/pipes.component';
 import {ShortenPipe} from './pipes/shorten.pipe';
-import { FilterPipe } from './pipes/filter.pipe';
-import { ReverseStrPipe } from './pipes/reverse-str.pipe';
-import { SortPipe } from './pipes/sort.pipe';
-import { Http01Component } from './http/http01/http01.component';
+import {FilterPipe} from './pipes/filter.pipe';
+import {ReverseStrPipe} from './pipes/reverse-str.pipe';
+import {SortPipe} from './pipes/sort.pipe';
+import {Http01Component} from './http/http01/http01.component';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
-import { MessagesComponent } from './http/messages/messages.component';
+import {MessagesComponent} from './http/messages/messages.component';
 import {LoggingInterceptorService} from './http/http01/logging.interceptor.service';
 import {AuthComponent} from './auth/auth.component';
 import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
 import {AlertComponent} from './shared/alert/alert.component';
+import {PlaceholderDirective} from './shared/placeholder/placeholder.directive';
+import {RecipesModule} from './recipes/recipes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     DirectivesComponent,
@@ -82,8 +74,6 @@ import {AlertComponent} from './shared/alert/alert.component';
     UsersComponent,
     PageNotFoundComponent,
     ErrorPageComponent,
-    RecipeStartComponent,
-    RecipeEditComponent,
     ObservablesComponent,
     HomeComponent,
     UserComponent,
@@ -100,14 +90,16 @@ import {AlertComponent} from './shared/alert/alert.component';
     MessagesComponent,
     AuthComponent,
     LoadingSpinnerComponent,
-    AlertComponent
+    AlertComponent,
+    PlaceholderDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    RecipesModule,
+    AppRoutingModule
   ],
   providers: [AccountService, LoggingService, ShoppingListService,
     ServersService, AccountService, AuthService, AuthGuard, CanDeactivateGuard,
