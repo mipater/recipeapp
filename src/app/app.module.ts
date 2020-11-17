@@ -54,6 +54,7 @@ import { MessagesComponent } from './http/messages/messages.component';
 import {LoggingInterceptorService} from './http/http01/logging.interceptor.service';
 import {AuthComponent} from './auth/auth.component';
 import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
+import {AlertComponent} from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.
     Http01Component,
     MessagesComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
