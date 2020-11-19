@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {ErrorPageComponent} from './routers/error-page/error-page.component';
-import {AuthComponent} from './auth/auth.component';
 
 /*const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,7 +22,6 @@ import {AuthComponent} from './auth/auth.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-  {path: 'auth', component: AuthComponent},
   {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'}},
   {path: '**', redirectTo: '/not-found'}
 ];

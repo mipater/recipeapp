@@ -17,11 +17,11 @@ import {DropdownDirective} from './dropdown.directive';
     CommonModule
   ],
   exports: [
+    CommonModule,
     AlertComponent,
     LoadingSpinnerComponent,
     PlaceholderDirective,
-    DropdownDirective,
-    CommonModule
+    DropdownDirective
   ]
 })
 export class SharedModule {
