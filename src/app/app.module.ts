@@ -1,16 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {RecipesModule} from './recipes/recipes.module';
+import {ShoppingListModule} from './shopping-list/shopping-list.module';
+import {SharedModule} from './shared/shared.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
-import {ShoppingListComponent} from './shopping-list/shopping-list.component';
-import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DirectivesComponent} from './directives/directives.component';
 import {BasicHighlightDirective} from './directives/basic-highlight/basic-highlight.directive';
 import {BetterHightlightDirective} from './directives/better-highlights/better-hightlight.directive';
 import {UnlessDirective} from './directives/unless.directive';
-import {DropdownDirective} from './shared/dropdown.directive';
 import {AccountComponent} from './services/account/account.component';
 import {NewAccountComponent} from './services/new-account/new-account.component';
 import {ServicesComponent} from './services/services.component';
@@ -47,22 +47,15 @@ import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import {MessagesComponent} from './http/messages/messages.component';
 import {LoggingInterceptorService} from './http/http01/logging.interceptor.service';
 import {AuthComponent} from './auth/auth.component';
-import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
-import {AlertComponent} from './shared/alert/alert.component';
-import {PlaceholderDirective} from './shared/placeholder/placeholder.directive';
-import {RecipesModule} from './recipes/recipes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     DirectivesComponent,
     BasicHighlightDirective,
     BetterHightlightDirective,
     UnlessDirective,
-    DropdownDirective,
     AccountComponent,
     NewAccountComponent,
     ServicesComponent,
@@ -89,9 +82,6 @@ import {RecipesModule} from './recipes/recipes.module';
     Http01Component,
     MessagesComponent,
     AuthComponent,
-    LoadingSpinnerComponent,
-    AlertComponent,
-    PlaceholderDirective
   ],
   imports: [
     BrowserModule,
@@ -99,7 +89,9 @@ import {RecipesModule} from './recipes/recipes.module';
     ReactiveFormsModule,
     HttpClientModule,
     RecipesModule,
-    AppRoutingModule
+    ShoppingListModule,
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [AccountService, LoggingService, ShoppingListService,
     ServersService, AccountService, AuthService, AuthGuard, CanDeactivateGuard,
