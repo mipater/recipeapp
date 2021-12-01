@@ -9,6 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {appReducer} from './store/app.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {AuthEffects} from './auth/store/auth.effects';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import {appReducer} from './store/app.reducer';
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([AuthEffects]),
     SharedModule,
     AppRoutingModule,
     CoreModule

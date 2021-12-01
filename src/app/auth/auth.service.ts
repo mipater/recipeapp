@@ -6,7 +6,7 @@ import {User} from './user.model';
 import {Router} from '@angular/router';
 import {Store} from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
-import * as AuthActions from '../auth/store/auth.action';
+import * as AuthActions from './store/auth.actions';
 
 export interface AuthResponseData {
   kind: string;
@@ -20,7 +20,6 @@ export interface AuthResponseData {
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
 
   constructor(
@@ -81,7 +80,7 @@ export class AuthService {
 
     if (loadedUser.token) {
       this.store.dispatch(
-        new AuthActions.Login({
+        new AuthActions.AuthenticateSuccess({
           email: loadedUser.email,
           userId: loadedUser.id,
           token: loadedUser.token,
@@ -113,7 +112,7 @@ export class AuthService {
     const user = new User(email, userId, token, expirationDate);
 
     this.store.dispatch(
-      new AuthActions.Login({email, userId, token, expirationDate})
+      new AuthActions.AuthenticateSuccess({email, userId, token, expirationDate})
     );
 
     this.autoLogout(expiresIn * 1000);
